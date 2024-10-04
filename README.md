@@ -79,6 +79,8 @@ Here are some additional resources: [Package Management and Bundling](https://gi
   * `lint:fix`: runs and also fixes all issues found by ESLint
   * `format`: formats all `.js` and `.ts` files in your projects `/src` directory
   * `format:check`: checks if the files in the `/src` directory are formatted according to Prettier's rules.
+
+**TODO**
 * (1) Configure a pre-commit hook that lints and formats your code using [husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/lint-staged/lint-staged). A tutorial can be found [here](https://dev.to/shashwatnautiyal/complete-guide-to-eslint-prettier-husky-and-lint-staged-fh9).
 * (2) Answer the question at the end of this section inside ``Readme.md`` file: 
 
