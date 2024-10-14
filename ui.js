@@ -19,7 +19,7 @@ export const toggleComments = () => {
   
   export const renderBears = (bears) => {
     const moreBearsSection = document.querySelector('.more_bears');
-    moreBearsSection.innerHTML = ''; // Clear existing content
+    moreBearsSection.innerHTML = ''; 
   
     bears.forEach((bear) => {
       moreBearsSection.innerHTML += `

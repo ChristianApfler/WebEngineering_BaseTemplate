@@ -20,7 +20,7 @@ const init = async () => {
     const wikitext = await getBearData(params);
     const bears = await extractBears(wikitext);
     
-    // Assuming you have a function to render bears in ui.js
+
     renderBears(bears);
   } catch (error) {
     console.error('Error initializing application:', error);

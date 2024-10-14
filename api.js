@@ -35,7 +35,7 @@ export const getBearData = async (params) => {
     return data.parse.wikitext['*'];
   } catch (error) {
     console.error('Error fetching bear data', error);
-    throw error; // Rethrow error to handle it in main.js
+    throw error;
   }
 };
 
@@ -50,7 +50,7 @@ export const extractBears = async (wikitext) => {
       const nameMatch = row.match(/\|name=\[\[(.*?)\]\]/);
       const binomialMatch = row.match(/\|binomial=(.*?)\n/);
       const imageMatch = row.match(/\|image=(.*?)\n/);
-      const rangeMatch = row.match(/\|range=([^|]*)/); // Capture range value before first pipe
+      const rangeMatch = row.match(/\|range=([^|]*)/);
 
       if (nameMatch && binomialMatch && imageMatch && rangeMatch) {
         const fileName = imageMatch[1].trim().replace('File:', '');
@@ -60,7 +60,7 @@ export const extractBears = async (wikitext) => {
           name: nameMatch[1],
           binomial: binomialMatch[1],
           image: imageUrl,
-          range: rangeMatch[1].trim() // Extracted and trimmed range
+          range: rangeMatch[1].trim() 
         };
         bears.push(bear);
       }
