@@ -6,8 +6,6 @@ export const toggleComments = (): void => {
 
   // Initially hide the comment wrapper
   commentWrapper.style.display = 'none';
-
-  // Add click event listener to toggle comments
   showHideBtn.onclick = () => {
     const showHideText = showHideBtn.textContent;
 

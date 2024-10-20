@@ -16,8 +16,16 @@ interface Query {
   pages: Record<string, Page>;
 }
 
+// Helper function to check and return the image URL or placeholder
+export const getImageUrl = (page: Page, placeholderImage: string): string => {
+  if (page.imageinfo && page.imageinfo.length > 0) {
+    return page.imageinfo[0].url;
+  }
+  return placeholderImage;
+};
+
 export const fetchImageUrl = async (fileName: string): Promise<string> => {
-  const placeholderImage = '/media/placeholder.png'; // TODO
+  const placeholderImage = '/media/placeholder.png';
   try {
     const imageParams = {
       action: 'query',
@@ -31,26 +39,18 @@ export const fetchImageUrl = async (fileName: string): Promise<string> => {
     const url = `${baseUrl}?${new URLSearchParams(imageParams).toString()}`;
     const res = await fetch(url);
 
-    // Check if the response is ok
     if (!res.ok) {
       throw new Error(`Network response was not ok: ${res.statusText}`);
     }
 
     const data = await res.json();
+    const pages: Query = data.query;
+    const page = Object.values(pages.pages)[0];
 
-    const pages: Query = data.query; // Cast the data to the Query type
-    const page = Object.values(pages.pages)[0]; // Access the first page
-
-    // Check if imageInfo is not undefined
-    if (page.imageinfo && page.imageinfo.length > 0) {
-      const imageUrl = page.imageinfo[0].url;
-      return imageUrl;
-    } else {
-      return placeholderImage; // Return placeholder image if not found
-    }
+    return getImageUrl(page, placeholderImage);
   } catch (error) {
     console.error(`Error fetching image for ${fileName}:`, error);
-    return placeholderImage; // Return placeholder on error
+    return placeholderImage;
   }
 };
 
