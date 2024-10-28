@@ -37,6 +37,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code for deployment
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for all branches to ensure .git directory is available
+          
       - name: Deploy with gh-pages
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
