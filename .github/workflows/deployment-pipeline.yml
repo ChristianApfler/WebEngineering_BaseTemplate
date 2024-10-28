@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  build:
+  buildanddeploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -32,11 +32,7 @@ jobs:
 
       - name: List build directory contents
         run: ls -la build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
+        
       - name: Checkout code for deployment
         uses: actions/checkout@v3
         with:
