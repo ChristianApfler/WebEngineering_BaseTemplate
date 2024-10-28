@@ -30,6 +30,9 @@ jobs:
       - name: Build application
         run: npm run build 
 
+      - name: List build directory contents
+        run: ls -la build
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -37,25 +40,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  
+          fetch-depth: 0  # Fetch all history for all branches
 
-      - name: Deploy to main branch
+      - name: Remove old files
+        run: git rm -rf ./*  # Clear old files in the main branch
+
+      - name: Copy build files
+        run: cp -R ./build/* ./  # Copy new build files to the root
+
+      - name: Configure Git
         run: |
-         
-          mkdir -p deploy
-         
-          cp -R ./build/* ./deploy/  
-
-          
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git checkout main
 
-          git rm -rf ./*  
-          
-        
-          cp -R ./deploy/* ./
+      - name: Commit changes
+        run: |
           git add .
+          git commit -m "Deploying to GitHub Pages" || echo "No changes to commit"
 
-          git commit -m "Deploying to GitHub Pages"
-          git push origin main
+      - name: Push changes to main branch
+        run: git push origin mai
