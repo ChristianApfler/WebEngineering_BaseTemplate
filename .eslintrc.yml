@@ -1,0 +1,22 @@
+# .eslintrc.yml
+extends:
+  - standard-with-typescript
+  - plugin:@typescript-eslint/recommended
+  - plugin:prettier/recommended
+  - prettier
+
+parser: '@typescript-eslint/parser' # Use TypeScript parser
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module # Enable ES modules
+  ecmaFeatures:
+    jsx: false # Set to true if using JSX
+
+env:
+  browser: true # Specify browser environment
+  es2021: true # Enable ES2021 features
+
+rules:
+  # You can add or customize rules here
+  semi: ['error', 'always'] # Example rule
+  quotes: ['error', 'single'] # Example rule
