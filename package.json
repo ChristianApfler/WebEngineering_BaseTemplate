@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This repository is designed as the foundation for coding playgrounds in the Web Engineering course. It offers a structured space for experimenting with and mastering various web development technologies and practices. The project is based on [this](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/Accessibility_troubleshooting) repository from MDN.",
   "main": "main.js",
+  "homepage": "https:// https://christianapfler.github.io/WebEngineering_BaseTemplate/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -12,7 +13,8 @@
     "format:check": "prettier --check src/**/*.{js,ts}",
     "prepare": "husky install",
     "test": "vitest --run",
-    "test:coverage": "vitest --run --coverage"
+    "test:coverage": "vitest --run --coverage",
+    "deploy": "gh-pages -d build"
   },
   "lint-staged": {
     "*.{js, jsx,ts,tsx}": [
@@ -34,6 +36,7 @@
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "gh-pages": "^6.2.0",
     "globals": "^15.11.0",
     "husky": "^8.0.0",
     "jsdom": "^25.0.1",

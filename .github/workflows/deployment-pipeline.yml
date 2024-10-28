@@ -37,26 +37,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Fetch all history for all branches
-
-      - name: Remove old files
-        run: git rm -rf ./*  # Clear old files in the main branch
-
-      - name: Copy build files
-        run: cp -R ./build/* ./  # Copy new build files to the root
-
-      - name: Configure Git
+      - name: Deploy with gh-pages
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
-      - name: Commit changes
-        run: |
-          git add .
-          git commit -m "Deploying to GitHub Pages" || echo "No changes to commit"
-
-      - name: Push changes to main branch
-        run: git push origin mai
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
