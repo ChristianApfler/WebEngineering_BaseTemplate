@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  setup-node:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,24 +19,10 @@ jobs:
           node-version: '18' 
 
       - name: Install dependencies
-        run: npm install
-    
-  lint:
-    needs: setup-node
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        run: npm ci  # Use npm ci for clean installs
 
       - name: Run lint
-        run: npm run lint
-
-  test:
-    needs: setup-node
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        run: npm run lint  # Run linting
 
       - name: Run tests
-        run: npm run test
+        run: npm run test  # Run tests
