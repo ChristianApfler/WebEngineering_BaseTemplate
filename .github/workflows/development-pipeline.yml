@@ -3,7 +3,7 @@ name: Developement Pipeline
 on:
   push:
     branches:
-      - developement
+      - development
 
 jobs:
 
