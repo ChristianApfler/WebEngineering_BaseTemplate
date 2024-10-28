@@ -41,7 +41,11 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0  # Fetch all history for all branches to ensure .git directory is available
-          
+     
+      - name: Check global packages
+        run: npm list -g --depth=0
+
+
       - name: Deploy with gh-pages
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
