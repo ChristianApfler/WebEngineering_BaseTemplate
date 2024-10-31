@@ -134,8 +134,12 @@
           about bear mating rituals, along with samples and quotes from experts.
         </p>
 
-        <label for="bear-audio">Listen to the audio clip about bears</label>
-        <audio id="bear-audio" controls>
+        <!-- Add aria-label for better accessibility -->
+        <audio
+          id="bear-audio"
+          controls
+          aria-label="Listen to the audio clip about bears"
+        >
           <source src="media/bear.mp3" type="audio/mp3" />
           <source src="media/bear.ogg" type="audio/ogg" />
           <p>It looks like your browser doesn't support HTML5 audio players.</p>
