@@ -8,13 +8,14 @@ body {
 
 html {
   font-size: 10px;
-  background-color: #dde;
+  background-color: #f5f5f5; /* Changed to a lighter background */
 }
 
 body {
   width: 80%;
   min-width: 1024px;
   margin: 0 auto;
+  background-color: #ffffff;
 }
 
 /* || typography */
@@ -64,7 +65,7 @@ div[class='nav'],
 article,
 footer,
 .secondary {
-  background-color: green;
+  background-color: #4caf50; /* Changed to a softer green for contrast */
 }
 
 article,
@@ -103,7 +104,7 @@ div[class='nav'] a {
   font-size: 2rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: black;
+  color: #ffffff; /* White text for better contrast on colored background */
 }
 
 div[class='nav'] .search {
@@ -153,7 +154,7 @@ footer {
 
 table {
   width: 100%;
-  background-color: #dde;
+  background-color: #f9f9f9; /* Changed to a lighter background for tables */
   border-collapse: collapse;
 }
 
@@ -171,7 +172,7 @@ th[scope='col'] {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #def;
+  background-color: #f1f1f1; /* Light gray for better contrast */
 }
 
 /* styling content images and audio */
@@ -189,7 +190,7 @@ audio {
 /* Comments styling */
 
 .comments {
-  background-color: #def;
+  background-color: #f9f9f9; /* Light gray for comments */
   padding: 10px;
 }
 
