@@ -50,7 +50,7 @@ jobs:
         with:
           node-version: '22.8.0'
       - name: Upload
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: build
      
