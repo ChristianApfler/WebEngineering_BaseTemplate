@@ -146,19 +146,57 @@ Use the tools presented in our accessibility workshop to test the accessibility 
 
 Test the current color contrast (text/background), report the results of the test, and then fix them by changing the assigned colors.
 
-*Present your reports here.*
+First changed the background to a cream colour eliminated most of the contrast issues  background-color: #FFFDD0 /* Changed to cream for contrast */
+Seconldy changed the colour of this text
+div[class='nav'] a {
+  display: inline-block;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000000; /* Black text for better contrast on colored background */
+}
 
 **(0.5) Semantic HTML**
 
 Report on what happens when you try to navigate the page using a screen reader. Fix those navigation issues.
 
-*Present your reports here.*
+Link - Home
+Link - Our Team
+Link - Projects
+Link - Blog
+-> Works fine 
+
+Search query Bearabeiten und Scannen auf "Go!" Button
+-> Works fine 
+
+Troubles with the audio Player inside the Webpage.
+It is not clear that we are currenlty on an Audio player or what is going play
+   <h3>Audio Clip</h3>
+        <p>
+          The following audio clip contains a fact file providing more details
+          about bear mating rituals, along with samples and quotes from experts.
+        </p>
+
+        <!-- Add aria-label for better accessibility -->
+        <audio
+          id="bear-audio"
+          controls
+          aria-label="Listen to the audio clip about bears"
+        >
+          <source src="media/bear.mp3" type="audio/mp3" />
+          <source src="media/bear.ogg" type="audio/ogg" />
+          <p>It looks like your browser doesn't support HTML5 audio players.</p>
+        </audio>
+
+Add this for better clerification
+
+
 
 **(0.5) Audio** 
 
 The ``<audio>`` player isn't accessible to hearing impaired (deaf) people — can you add some kind of accessible alternative for these users?
 
-*Present your findings and fixes here.*
+For deaf people a transcript section can be added where the content of the audio file is written out
 
 **(1) Forms** 
   * The ``<input>`` element in the search form at the top could do with a label, but we don't want to add a visible text label that would potentially spoil the design and isn't really needed by sighted users. Fix this issue by adding a label that is only accessible to screen readers.
