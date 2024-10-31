@@ -65,7 +65,7 @@ div[class='nav'],
 article,
 footer,
 .secondary {
-  background-color: #FFFDD0 /* Changed to a softer green for contrast */
+  background-color: #FFFDD0 /* Changed to cream for contrast */
 }
 
 article,
@@ -104,7 +104,7 @@ div[class='nav'] a {
   font-size: 2rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: #ffffff; /* White text for better contrast on colored background */
+  color: #000000; /* Black text for better contrast on colored background */
 }
 
 div[class='nav'] .search {
