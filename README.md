@@ -61,6 +61,8 @@ Present your findings here...
 console.log('Make use of markdown codesnippets to show and explain good/bad practices!')
 ```
 
+See branch - playground1 
+
 
 ## 2. Dependency- and Build Management Playground (10 Pts.)
 Build the application with ``npm`` and a build and a dependency management tool of your choice (e.g. [Vite](https://vitejs.dev/), [Webpack](https://webpack.js.org/), or others). 
@@ -114,7 +116,12 @@ Apply the following ruleset for Prettier:
 
 >  **What improvements in your codebase were introduced by using TS instead of JS? Name at least 3 and explain why.**
 
-Present your findings here...
+#1 Static Type Checking:
+    TypeScript’s static type system allows developers to define types for variables, function parameters, and return values. This feature helps catch potential errors at compile-time rather than runtime, reducing the chance of unexpected bugs and errors in production. For example, if a function expects a string but receives a number, TypeScript will throw an error during development.
+#2 Improved Code Readability
+    With TypeScript, function and variable types are explicitly defined, making the code more self-explanatory and easier to understand. For instance, instead of needing extensive comments to explain function parameters and return types, TypeScript provides this information directly in the code.
+#3 Enhanced IDE Support
+    TypeScript improves developer experience by providing better integration with IDEs. Features like intelligent autocompletion, refactoring tools, and inline documentation (tooltips) rely on type information, which TypeScript supplies. IDEs can suggest properties, methods, and argument types based on the defined types in the codebase, significantly boosting development efficiency.
 
 ## 3.	CI/CD Pipeline Playground (5 Pts.)
 Implementation of a CI/CD pipeline to automate the development and deployment process – write automated tests.
