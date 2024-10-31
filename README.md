@@ -197,9 +197,48 @@ Add this for better clerification
 The ``<audio>`` player isn't accessible to hearing impaired (deaf) people — can you add some kind of accessible alternative for these users?
 
 For deaf people a transcript section can be added where the content of the audio file is written out
+ <h3>Transcript</h3>
+      <p>
+  This is a placeholder for the Transcript 
+</p>
+
+added after the audio player
 
 **(1) Forms** 
   * The ``<input>`` element in the search form at the top could do with a label, but we don't want to add a visible text label that would potentially spoil the design and isn't really needed by sighted users. Fix this issue by adding a label that is only accessible to screen readers.
+
+  To fix this issue
+  I first updated the div and added a screen reader only label  
+
+  <div class="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our team</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+      <form class="search">
+        <label for="search-input" class="sr-only">Search</label> <!-- Screen reader only label -->
+        <input type="search" name="q" id="search-input" placeholder="Search query" />
+        <input type="submit" value="Go!" />
+      </form>
+    </div>
+
+    afterwards i updated the .css file and added a
+    sr-only stlye
+
+    /* || Accessibility Styles */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); /* CSS clipping for accessibility */
+  border: 0;
+}
+
   * The two ``<input>`` elements in the comment form have visible text labels, but they are not unambiguously associated with their labels — how do you achieve this? Note that you'll need to update some of the CSS rule as well.
 
 *Present your findings and fixes here.*

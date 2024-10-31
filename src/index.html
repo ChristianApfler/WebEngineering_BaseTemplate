@@ -31,7 +31,14 @@
         <li><a href="#">Blog</a></li>
       </ul>
       <form class="search">
-        <input type="search" name="q" placeholder="Search query" />
+        <label for="search-input" class="sr-only">Search</label>
+        <!-- Screen reader only label -->
+        <input
+          type="search"
+          name="q"
+          id="search-input"
+          placeholder="Search query"
+        />
         <input type="submit" value="Go!" />
       </form>
     </div>
