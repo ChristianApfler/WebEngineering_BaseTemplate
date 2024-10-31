@@ -49,6 +49,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '22.8.0'
+      - name: Upload
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: build
      
   #    - name: Deploy with gh-pages
    #     run: |
