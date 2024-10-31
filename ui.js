@@ -1,6 +1,6 @@
 
 export const toggleComments = () => {
-    const showHideBtn = document.querySelector('.show-hide');
+    const showHideBtn = document.querySelector('.show-hide'); console.log("showHideBtn is now a const in a seperate module and is not global anymore")
     const commentWrapper = document.querySelector('.comment-wrapper');
   
     commentWrapper.style.display = 'none';

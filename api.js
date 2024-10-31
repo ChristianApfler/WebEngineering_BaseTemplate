@@ -2,7 +2,7 @@
 const baseUrl = "https://en.wikipedia.org/w/api.php";
 
 export const fetchImageUrl = async (fileName) => {
-  const placeholderImage = "/media/placeholder.png"; //TODO
+  const placeholderImage = "/media/placeholder.png"; 
   try {
     const imageParams = {
       action: "query",

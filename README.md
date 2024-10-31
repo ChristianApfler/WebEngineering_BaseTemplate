@@ -60,6 +60,106 @@ Present your findings here...
 ``` JS
 console.log('Make use of markdown codesnippets to show and explain good/bad practices!')
 ```
+Bad Practice #1: Error Handling.
+In the SourceCode there isnt any Error Handling, which is bad practice. 
+Example before error handling:
+function fetchImageUrl(fileName) {
+  var imageParams = {
+      action: "query",
+      titles: `File:${fileName}`,
+      prop: "imageinfo",
+      iiprop: "url",
+      format: "json",
+      origin: "*"
+  };
+
+  var url = `${baseUrl}?${new URLSearchParams(imageParams).toString()}`;
+  return fetch(url)
+    .then(function(res) {
+      return res.json();
+    })
+    .then(function(data) {
+      var pages = data.query.pages;
+      var imageUrl = Object.values(pages)[0].imageinfo[0].url;
+      return imageUrl;
+    });
+}
+After error handling:
+export const fetchImageUrl = async (fileName) => {
+  const placeholderImage = "/media/placeholder.png"; 
+  try {
+    const imageParams = {
+      action: "query",
+      titles: `File:${fileName}`,
+      prop: "imageinfo",
+      iiprop: "url",
+      format: "json",
+      origin: "*"
+    };
+
+    const url = `${baseUrl}?${new URLSearchParams(imageParams).toString()}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const pages = data.query.pages;
+    const imageUrl = Object.values(pages)[0].imageinfo[0].url;
+    return imageUrl;
+
+  } catch (error) {
+    console.error(`Error fetching image for ${fileName}:`, error);
+    return placeholderImage;
+  }
+};
+
+Bad Practice #2: Use of then()
+In the Source Code then() is used. In modern JS this is considered less readable and maintainable. Therefore async/await is the preferred choice 
+Example with then:
+function getBearData() {
+  var url = `${baseUrl}?${new URLSearchParams(params).toString()}`;
+  fetch(url)
+    .then(function(res) {
+      return res.json();
+    })
+    .then(function(data) {
+      var wikitext = data.parse.wikitext['*'];
+      extractBears(wikitext); // No need to handle promises here
+    });
+}
+Example with async/await:
+export const getBearData = async (params) => {
+  try {
+    const url = `${baseUrl}?${new URLSearchParams(params).toString()}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.parse.wikitext['*'];
+  } catch (error) {
+    console.error('Error fetching bear data', error);
+    throw error;
+  }
+};
+
+Bad Practice #3: Global variables & elements:
+In the source Code global variables & elements are used. This can lead to naming conflicts and unintended side effects as the projects grow larger
+Example global element: 
+var showHideBtn = document.querySelector('.show-hide'); - In the main.js
+Example in the Updated version, the code was split into multiple files:
+export const toggleComments = () => {
+    const showHideBtn = document.querySelector('.show-hide');  console.log("showHideBtn is now a const in a seperate module and is not global anymore")
+    const commentWrapper = document.querySelector('.comment-wrapper');
+  
+    commentWrapper.style.display = 'none';
+  
+    showHideBtn.onclick = () => {
+      const showHideText = showHideBtn.textContent;
+      if (showHideText === 'Show comments') {
+        showHideBtn.textContent = 'Hide comments';
+        commentWrapper.style.display = 'block';
+      } else {
+        showHideBtn.textContent = 'Show comments';
+        commentWrapper.style.display = 'none';
+      }
+    };
+  };
 
 
 ## 2. Dependency- and Build Management Playground (10 Pts.)
