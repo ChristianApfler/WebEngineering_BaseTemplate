@@ -166,6 +166,8 @@ Link - Projects
 Link - Blog
 -> Works fine 
 
+Tables are not read
+
 Search query Bearabeiten und Scannen auf "Go!" Button
 -> Works fine 
 
