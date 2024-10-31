@@ -1,10 +1,13 @@
 import { defineConfig } from 'vite';
 
+const repoName = 'WebEngineering_BaseTemplate';
+
 export default defineConfig({
   root: 'src',
   build: {
     outDir: '../build',
   },
+  base: `/${repoName}/`,
   test: {
     globals: true,
     environment: 'jsdom',
